@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HTML Text Formatting Tags</title>
+  <style>
+    body { font-family: "Segoe UI", Tahoma, sans-serif; margin: 32px; background: #f9fafb; color: #1f2937; }
+    h1 { margin-bottom: 16px; }
+    p.lead { margin-top: 0; margin-bottom: 20px; color: #4b5563; }
+    table { width: 100%; border-collapse: collapse; background: #fff; box-shadow: 0 8px 18px rgba(0,0,0,0.05); }
+    th, td { padding: 12px 14px; border: 1px solid #e5e7eb; text-align: left; vertical-align: top; }
+    th { background: #111827; color: #f9fafb; text-transform: uppercase; letter-spacing: 0.05em; font-size: 12px; }
+    tr:nth-child(even) { background: #f3f4f6; }
+    code { background: #f3f4f6; padding: 2px 4px; border-radius: 3px; }
+    .example { color: #0f172a; }
+  </style>
+</head>
+<body>
+  <h1>HTML Text Formatting Tags</h1>
+  <p class="lead">Reference table for the core HTML tags used to format inline and block text.</p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Tag</th>
+        <th>Purpose</th>
+        <th>Example</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><code>&lt;b&gt;</code></td>
+        <td>Stylistically offset text without conveying importance.</td>
+        <td class="example">This is <b>bold</b> text.</td>
+      </tr>
+      <tr>
+        <td><code>&lt;strong&gt;</code></td>
+        <td>Indicates strong importance; typically renders bold.</td>
+        <td class="example">This is <strong>strong</strong> text.</td>
+      </tr>
+      <tr>
+        <td><code>&lt;i&gt;</code></td>
+        <td>Stylistic offset such as idiomatic text; typically renders italic.</td>
+        <td class="example">This is <i>italic</i> text.</td>
+      </tr>
+      <tr>
+        <td><code>&lt;em&gt;</code></td>
+        <td>Emphasized text; conveys stress emphasis.</td>
+        <td class="example">This is <em>emphasized</em> text.</td>
+      </tr>
+      <tr>
+        <td><code>&lt;mark&gt;</code></td>
+        <td>Highlights text as marked or relevant.</td>
+        <td class="example">This is <mark>highlighted</mark> text.</td>
+      </tr>
+      <tr>
+        <td><code>&lt;small&gt;</code></td>
+        <td>Renders side comments or fine print in smaller type.</td>
+        <td class="example">This is <small>small</small> text.</td>
+      </tr>
+      <tr>
+        <td><code>&lt;del&gt;</code></td>
+        <td>Shows deleted or outdated text.</td>
+        <td class="example">This is <del>deleted</del> text.</td>
+      </tr>
+      <tr>
+        <td><code>&lt;ins&gt;</code></td>
+        <td>Indicates inserted or added text.</td>
+        <td class="example">This is <ins>inserted</ins> text.</td>
+      </tr>
+      <tr>
+        <td><code>&lt;u&gt;</code></td>
+        <td>Denotes non-textual annotation; typically underlines.</td>
+        <td class="example">This is <u>underlined</u> text.</td>
+      </tr>
+      <tr>
+        <td><code>&lt;s&gt;</code></td>
+        <td>Represents text that is no longer accurate or relevant.</td>
+        <td class="example">This is <s>strikethrough</s> text.</td>
+      </tr>
+      <tr>
+        <td><code>&lt;sub&gt;</code></td>
+        <td>Subscript text.</td>
+        <td class="example">H<sub>2</sub>O</td>
+      </tr>
+      <tr>
+        <td><code>&lt;sup&gt;</code></td>
+        <td>Superscript text.</td>
+        <td class="example">E = mc<sup>2</sup></td>
+      </tr>
+      <tr>
+        <td><code>&lt;abbr&gt;</code></td>
+        <td>Abbreviation or acronym; use title attribute for expansion.</td>
+        <td class="example"><abbr title="World Health Organization">WHO</abbr></td>
+      </tr>
+      <tr>
+        <td><code>&lt;cite&gt;</code></td>
+        <td>Citation of a creative work.</td>
+        <td class="example">— <cite>HTML Standard</cite></td>
+      </tr>
+      <tr>
+        <td><code>&lt;q&gt;</code></td>
+        <td>Inline quotation; browsers add quotation marks.</td>
+        <td class="example">She said, <q>keep learning</q>.</td>
+      </tr>
+      <tr>
+        <td><code>&lt;blockquote&gt;</code></td>
+        <td>Block-level quotation with optional cite attribute.</td>
+        <td class="example"><blockquote cite="https://html.spec.whatwg.org/">A block quote example.</blockquote></td>
+      </tr>
+      <tr>
+        <td><code>&lt;code&gt;</code></td>
+        <td>Inline code fragment.</td>
+        <td class="example">Use <code>&lt;section&gt;</code> for sections.</td>
+      </tr>
+      <tr>
+        <td><code>&lt;pre&gt;</code></td>
+        <td>Preformatted text that preserves whitespace.</td>
+        <td class="example"><pre>Line one
+Line two</pre></td>
+      </tr>
+      <tr>
+        <td><code>&lt;kbd&gt;</code></td>
+        <td>Keyboard input the user should type.</td>
+        <td class="example">Press <kbd>Ctrl</kbd> + <kbd>C</kbd>.</td>
+      </tr>
+      <tr>
+        <td><code>&lt;samp&gt;</code></td>
+        <td>Sample output from a program or system.</td>
+        <td class="example"><samp>404 Not Found</samp></td>
+      </tr>
+      <tr>
+        <td><code>&lt;var&gt;</code></td>
+        <td>Variable in a mathematical expression or code.</td>
+        <td class="example"><var>x</var> + <var>y</var> = 10</td>
+      </tr>
+      <tr>
+        <td><code>&lt;time&gt;</code></td>
+        <td>Machine-readable date or time value.</td>
+        <td class="example"><time datetime="2026-01-05">January 5, 2026</time></td>
+      </tr>
+      <tr>
+        <td><code>&lt;address&gt;</code></td>
+        <td>Contact information for a person or organization.</td>
+        <td class="example"><address>123 Web St., Internet</address></td>
+      </tr>
+    </tbody>
+  </table>
+</body>
+</html>
