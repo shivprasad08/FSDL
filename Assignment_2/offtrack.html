@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Off Track - Portfolio</title>
+  
+  <!-- Bootstrap 5 CDN -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Oswald:wght@400;600;700&display=swap" rel="stylesheet">
+  
+  <!-- FontAwesome CDN -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <style>
+    :root {
+      --neon-lime: #D0FF00;
+      --deep-black: #000000;
+      --dark-charcoal: #111111;
+      --pure-white: #FFFFFF;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Oswald', sans-serif;
+      background-color: var(--deep-black);
+      color: var(--pure-white);
+      overflow-x: hidden;
+    }
+    
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+    
+    /* Navbar Styles */
+    .navbar {
+      background-color: var(--deep-black) !important;
+      box-shadow: 0 2px 10px rgba(208, 255, 0, 0.1);
+      padding: 1.5rem 0;
+    }
+    
+    .navbar-brand {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 900;
+      font-size: 1.5rem;
+      color: var(--pure-white) !important;
+      letter-spacing: 3px;
+    }
+    
+    .navbar-nav .nav-link {
+      color: var(--pure-white) !important;
+      text-transform: uppercase;
+      font-weight: 600;
+      margin: 0 1rem;
+      letter-spacing: 1px;
+      position: relative;
+      transition: color 0.3s ease;
+    }
+    
+    .navbar-nav .nav-link:hover {
+      color: var(--neon-lime) !important;
+    }
+    
+    .navbar-nav .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background-color: var(--neon-lime);
+      transition: width 0.3s ease;
+    }
+    
+    .navbar-nav .nav-link:hover::after {
+      width: 100%;
+    }
+    
+    .navbar-toggler {
+      border-color: var(--neon-lime);
+    }
+    
+    .navbar-toggler-icon {
+      background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='%23D0FF00' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+    }
+    
+    /* Hero Section */
+    .hero-section {
+      min-height: 60vh;
+      background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
+                  url('https://images.unsplash.com/photo-1502139214982-d0ad755818d8?q=80&w=2070&auto=format&fit=crop') center/cover no-repeat;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 8rem 2rem 4rem;
+    }
+    
+    .hero-title {
+      font-size: clamp(2.5rem, 8vw, 5rem);
+      font-weight: 900;
+      margin-bottom: 1rem;
+      text-shadow: 0 0 30px rgba(208, 255, 0, 0.3);
+      color: var(--neon-lime);
+    }
+    
+    .hero-subtitle {
+      font-size: clamp(1.2rem, 3vw, 1.8rem);
+      color: var(--pure-white);
+      margin-bottom: 2rem;
+      letter-spacing: 2px;
+    }
+    
+    /* Track Section */
+    .track-section {
+      background-color: var(--dark-charcoal);
+      padding: 5rem 0;
+      min-height: 70vh;
+    }
+    
+    .track-column {
+      padding: 3rem 2rem;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    
+    .track-column h3 {
+      font-size: 3rem;
+      margin-bottom: 2rem;
+      color: var(--neon-lime);
+      text-align: center;
+    }
+    
+    .track-column > p {
+      text-align: center;
+      font-size: 1.2rem;
+      margin-bottom: 3rem;
+      color: #ccc;
+    }
+    
+    .track-column ul {
+      list-style: none;
+      padding: 0;
+    }
+    
+    .track-column ul li {
+      font-size: 1.3rem;
+      margin-bottom: 1.5rem;
+      padding-left: 2.5rem;
+      position: relative;
+      line-height: 1.8;
+    }
+    
+    .track-column ul li::before {
+      content: '▸';
+      position: absolute;
+      left: 0;
+      color: var(--neon-lime);
+      font-size: 1.8rem;
+    }
+    
+    /* Gallery Section */
+    .gallery-section {
+      background-color: var(--deep-black);
+      padding: 5rem 0;
+    }
+    
+    .section-title {
+      font-size: clamp(2rem, 5vw, 3.5rem);
+      margin-bottom: 3rem;
+      text-align: center;
+      position: relative;
+      display: inline-block;
+      width: 100%;
+    }
+    
+    .section-title::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100px;
+      height: 4px;
+      background-color: var(--neon-lime);
+    }
+    
+    .masonry-item {
+      overflow: hidden;
+      margin-bottom: 30px;
+      position: relative;
+      border: 2px solid transparent;
+      transition: border-color 0.3s ease;
+    }
+    
+    .masonry-item:hover {
+      border-color: var(--neon-lime);
+    }
+    
+    .masonry-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+      display: block;
+    }
+    
+    .masonry-item:hover img {
+      transform: scale(1.1);
+    }
+    
+    /* Footer */
+    footer {
+      background-color: var(--deep-black);
+      padding: 3rem 0 2rem;
+      border-top: 1px solid var(--dark-charcoal);
+    }
+    
+    .social-icons {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+    
+    .social-icons a {
+      color: var(--pure-white);
+      font-size: 2rem;
+      transition: all 0.3s ease;
+    }
+    
+    .social-icons a:hover {
+      color: var(--neon-lime);
+      text-shadow: 0 0 15px var(--neon-lime);
+      transform: translateY(-5px);
+    }
+    
+    .copyright {
+      text-align: center;
+      color: #888;
+      font-size: 0.9rem;
+      margin-top: 2rem;
+    }
+    
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .track-column {
+        padding: 2rem 1rem;
+      }
+      
+      .navbar-nav .nav-link {
+        margin: 0.5rem 0;
+      }
+      
+      .track-column ul li {
+        font-size: 1.1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNavbar">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">PORTFOLIO</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html#bio">Bio</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html#on-track">On Track</a></li>
+          <li class="nav-item"><a class="nav-link active" href="offtrack.html">Off Track</a></li>
+          <li class="nav-item"><a class="nav-link" href="index.html#contact">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <h1 class="hero-title">OFF TRACK</h1>
+    <p class="hero-subtitle">Hobbies & Personal Interests</p>
+  </section>
+
+  <!-- Off Track Section -->
+  <section class="track-section">
+    <div class="container">
+      <div class="track-column">
+        <h3>LIFE BEYOND CODE</h3>
+        <p>When I'm not building digital experiences, here's where you'll find me...</p>
+        <ul>
+          <li>Photography & Visual Storytelling</li>
+          <li>Open Source Contributions</li>
+          <li>Tech Blogging & Content Creation</li>
+          <li>Automotive Technology</li>
+          <li>Gaming & Game Design</li>
+          <li>Traveling & Exploring New Cultures</li>
+          <li>Coffee Enthusiast</li>
+          <li>Fitness & Outdoor Activities</li>
+          <li>Music Production & DJing</li>
+          <li>Reading Sci-Fi & Tech Magazines</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery Section -->
+  <section class="gallery-section">
+    <div class="container">
+      <h2 class="section-title">Off Track Gallery</h2>
+      <div class="row">
+        <div class="col-md-4 col-sm-6">
+          <div class="masonry-item">
+            <img src="https://images.unsplash.com/photo-1452587925148-ce544e77e70d?w=600&h=400&fit=crop" alt="Travel">
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-6">
+          <div class="masonry-item">
+            <img src="https://images.unsplash.com/photo-1511671782779-c97d3d27a1d4?w=600&h=400&fit=crop" alt="Music">
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-6">
+          <div class="masonry-item">
+            <img src="https://images.unsplash.com/photo-1495615080073-6b89c9839ce0?w=600&h=400&fit=crop" alt="Coffee">
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-6">
+          <div class="masonry-item">
+            <img src="https://images.unsplash.com/photo-1552820728-8b83bb6b773f?w=600&h=400&fit=crop" alt="Fitness">
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-6">
+          <div class="masonry-item">
+            <img src="https://images.unsplash.com/photo-1493711662062-fa541adb3fc8?w=600&h=400&fit=crop" alt="Automotive">
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-6">
+          <div class="masonry-item">
+            <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?w=600&h=400&fit=crop" alt="Gaming">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer id="contact">
+    <div class="container">
+      <div class="social-icons">
+        <a href="https://github.com" target="_blank" aria-label="GitHub">
+          <i class="fab fa-github"></i>
+        </a>
+        <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn">
+          <i class="fab fa-linkedin"></i>
+        </a>
+        <a href="https://instagram.com" target="_blank" aria-label="Instagram">
+          <i class="fab fa-instagram"></i>
+        </a>
+        <a href="https://twitter.com" target="_blank" aria-label="Twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </div>
+      <div class="copyright">
+        <p>&copy; 2026 Shivprasad A. Mahind. All Rights Reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap 5 JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
