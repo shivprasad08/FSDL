@@ -11,10 +11,13 @@
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Oswald:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Montserrat:wght@700;900&family=Oswald:wght@400;600;700&display=swap" rel="stylesheet">
   
   <!-- FontAwesome CDN -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Locomotive Scroll CDN -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.3/dist/locomotive-scroll.css">
   
   <style>
     :root {
@@ -38,8 +41,8 @@
     }
     
     h1, h2, h3, h4, h5, h6 {
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 900;
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 2px;
     }
@@ -52,14 +55,15 @@
     }
     
     .navbar-brand {
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 900;
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 700;
       font-size: 1.5rem;
       color: var(--pure-white) !important;
       letter-spacing: 3px;
     }
     
     .navbar-nav .nav-link {
+      font-family: 'Cormorant Garamond', serif;
       color: var(--pure-white) !important;
       text-transform: uppercase;
       font-weight: 600;
@@ -98,7 +102,7 @@
     
     /* Hero Section */
     .hero-section {
-      min-height: 60vh;
+      height: 100vh;
       background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), 
                   url('https://images.unsplash.com/photo-1502139214982-d0ad755818d8?q=80&w=2070&auto=format&fit=crop') center/cover no-repeat;
       display: flex;
@@ -225,15 +229,32 @@
     /* Footer */
     footer {
       background-color: var(--deep-black);
-      padding: 3rem 0 2rem;
+      padding: 4rem 0 2rem;
       border-top: 1px solid var(--dark-charcoal);
+    }
+    
+    .footer-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 3rem;
+      gap: 4rem;
+    }
+    
+    .footer-left {
+      flex: 1;
+    }
+    
+    .footer-left h4 {
+      color: var(--neon-lime);
+      font-size: 1.5rem;
+      margin-bottom: 1.5rem;
     }
     
     .social-icons {
       display: flex;
-      justify-content: center;
-      gap: 2rem;
-      margin-bottom: 2rem;
+      gap: 1.5rem;
+      flex-wrap: wrap;
     }
     
     .social-icons a {
@@ -248,11 +269,69 @@
       transform: translateY(-5px);
     }
     
+    .footer-right {
+      flex: 1;
+    }
+    
+    .footer-right h4 {
+      color: var(--neon-lime);
+      font-size: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    .contact-form .form-control {
+      background-color: var(--dark-charcoal);
+      border: 2px solid #333;
+      border-radius: 0;
+      color: var(--pure-white);
+      padding: 0.8rem 1rem;
+      margin-bottom: 1rem;
+      transition: border-color 0.3s ease;
+    }
+    
+    .contact-form .form-control:focus {
+      background-color: var(--dark-charcoal);
+      border-color: var(--neon-lime);
+      color: var(--pure-white);
+      box-shadow: 0 0 10px rgba(208, 255, 0, 0.2);
+    }
+    
+    .contact-form .form-control::placeholder {
+      color: #888;
+    }
+    
+    .contact-form textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+    
+    .contact-form .btn-submit {
+      background-color: var(--neon-lime);
+      color: var(--deep-black);
+      border: none;
+      border-radius: 0;
+      padding: 0.8rem 2rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: all 0.3s ease;
+      width: 100%;
+    }
+    
+    .contact-form .btn-submit:hover {
+      background-color: var(--pure-white);
+      color: var(--deep-black);
+      box-shadow: 0 0 20px var(--neon-lime);
+      transform: translateY(-2px);
+    }
+    
     .copyright {
       text-align: center;
       color: #888;
       font-size: 0.9rem;
       margin-top: 2rem;
+      padding-top: 2rem;
+      border-top: 1px solid var(--dark-charcoal);
     }
     
     /* Responsive Design */
@@ -263,15 +342,22 @@
       
       .navbar-nav .nav-link {
         margin: 0.5rem 0;
+      }      
+      .footer-content {
+        flex-direction: column;
+        gap: 3rem;
       }
       
+      .footer-left, .footer-right {
+        width: 100%;
+      }      
       .track-column ul li {
         font-size: 1.1rem;
       }
     }
   </style>
 </head>
-<body>
+<body data-scroll-container>
 
   <!-- Navbar -->
   <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNavbar">
@@ -362,20 +448,38 @@
   <!-- Footer -->
   <footer id="contact">
     <div class="container">
-      <div class="social-icons">
-        <a href="https://github.com" target="_blank" aria-label="GitHub">
-          <i class="fab fa-github"></i>
-        </a>
-        <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn">
-          <i class="fab fa-linkedin"></i>
-        </a>
-        <a href="https://instagram.com" target="_blank" aria-label="Instagram">
-          <i class="fab fa-instagram"></i>
-        </a>
-        <a href="https://twitter.com" target="_blank" aria-label="Twitter">
-          <i class="fab fa-twitter"></i>
-        </a>
+      <div class="footer-content">
+        <!-- Left Side - Social Links -->
+        <div class="footer-left">
+          <h4>CONNECT WITH ME</h4>
+          <div class="social-icons">
+            <a href="https://github.com" target="_blank" aria-label="GitHub">
+              <i class="fab fa-github"></i>
+            </a>
+            <a href="https://linkedin.com" target="_blank" aria-label="LinkedIn">
+              <i class="fab fa-linkedin"></i>
+            </a>
+            <a href="https://twitter.com" target="_blank" aria-label="Twitter">
+              <i class="fab fa-twitter"></i>
+            </a>
+          </div>
+        </div>
+        
+        <!-- Right Side - Contact Form -->
+        <div class="footer-right">
+          <h4>CONTACT ME</h4>
+          <form class="contact-form">
+            <div class="mb-3">
+              <input type="email" class="form-control" id="contactEmail" placeholder="Your Email" required>
+            </div>
+            <div class="mb-3">
+              <textarea class="form-control" id="contactMessage" rows="4" placeholder="Your Message" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-submit">Send Message</button>
+          </form>
+        </div>
       </div>
+      
       <div class="copyright">
         <p>&copy; 2026 Shivprasad A. Mahind. All Rights Reserved.</p>
       </div>
@@ -384,5 +488,12 @@
 
   <!-- Bootstrap 5 JS -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  
+  <!-- Locomotive Scroll JS -->
+  <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.3/dist/locomotive-scroll.umd.js"></script>
+  <script>
+    // Initialize Locomotive Scroll
+    const scroll = new LocomotiveScroll();
+  </script>
 </body>
 </html>

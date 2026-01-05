@@ -11,10 +11,13 @@
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&family=Oswald:wght@400;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=Montserrat:wght@700;900&family=Oswald:wght@400;600;700&display=swap" rel="stylesheet">
   
   <!-- FontAwesome CDN -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <!-- Locomotive Scroll CDN -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.3/dist/locomotive-scroll.css">
   
   <style>
     :root {
@@ -38,8 +41,8 @@
     }
     
     h1, h2, h3, h4, h5, h6 {
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 900;
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 700;
       text-transform: uppercase;
       letter-spacing: 2px;
     }
@@ -60,14 +63,15 @@
     }
     
     .navbar-brand {
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 900;
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 700;
       font-size: 1.5rem;
       color: var(--pure-white) !important;
       letter-spacing: 3px;
     }
     
     .navbar-nav .nav-link {
+      font-family: 'Cormorant Garamond', serif;
       color: var(--pure-white) !important;
       text-transform: uppercase;
       font-weight: 600;
@@ -107,28 +111,52 @@
     /* Hero Section */
     .hero-section {
       height: 100vh;
-      background: var(--deep-black);
+      position: relative;
       display: flex;
       flex-direction: column;
       justify-content: center;
-      align-items: flex-start;
-      text-align: left;
-      position: relative;
-      padding-left: 5%;
+      align-items: center;
+      text-align: center;
+      overflow: hidden;
+    }
+    
+    .hero-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), 
+                  url('https://images.unsplash.com/photo-1506905925346-21bda4d32df4?q=80&w=2070&auto=format&fit=crop') center/cover;
+      background-attachment: fixed;
+      z-index: -1;
+      transition: transform 0.1s ease-out;
+      transform: scale(1);
     }
     
     .hero-title {
+      font-family: 'Cormorant Garamond', serif;
       font-size: clamp(2rem, 6vw, 4rem);
-      font-weight: 900;
+      font-weight: 700;
       margin-bottom: 1rem;
       text-shadow: 0 0 30px rgba(208, 255, 0, 0.3);
+      transition: all 0.6s ease-out;
+      opacity: 1;
+      transform: translateY(0) scale(1);
+      z-index: 1;
     }
     
     .hero-subtitle {
+      font-family: 'Cormorant Garamond', serif;
       font-size: clamp(1rem, 2vw, 1.5rem);
       color: var(--neon-lime);
       margin-bottom: 3rem;
       letter-spacing: 3px;
+      transition: all 0.6s ease-out;
+      opacity: 1;
+      transform: translateY(0) scale(1);
+      z-index: 1;
     }
     
     .scroll-indicator {
@@ -168,8 +196,8 @@
     
     .statement-quote {
       font-size: clamp(2.5rem, 6vw, 5rem);
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 900;
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 700;
       text-align: center;
       margin-bottom: 3rem;
       line-height: 1.2;
@@ -209,13 +237,15 @@
     }
     
     /* Certificates & Projects Sections */
-    .certificates-section, .projects-section {
+    .certificates-section {
       background-color: var(--deep-black);
       padding: 5rem 0;
     }
     
     .projects-section {
-      background-color: var(--dark-charcoal);
+      background-color: #0a0a0a;
+      padding: 5rem 0;
+      border-top: 3px solid var(--neon-lime);
     }
     
     .card {
@@ -295,6 +325,7 @@
     .track-section {
       background-color: var(--dark-charcoal);
       padding: 5rem 0;
+      border-top: 3px solid var(--neon-lime);
     }
     
     .track-column {
@@ -489,7 +520,7 @@
     }
   </style>
 </head>
-<body>
+<body data-scroll-container>
 
   <!-- Navbar -->
   <nav class="navbar navbar-expand-lg navbar-dark fixed-top transparent" id="mainNavbar">
@@ -501,7 +532,7 @@
       <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
         <ul class="navbar-nav">
           <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
-          <li class="nav-item"><a class="nav-link" href="#bio">Bio</a></li>
+          <li class="nav-item"><a class="nav-link" href="#bio">About</a></li>
           <li class="nav-item"><a class="nav-link" href="#on-track">On Track</a></li>
           <li class="nav-item"><a class="nav-link" href="offtrack.html">Off Track</a></li>
           <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
@@ -527,7 +558,7 @@
         I'm a passionate developer who believes in pushing boundaries and creating extraordinary digital experiences. 
         Every project is an opportunity to innovate and exceed expectations.
       </p>
-      <div class="signature">— Your Signature</div>
+      <div class="signature">— Shivprasad A. Mahind</div>
     </div>
   </section>
 
@@ -741,6 +772,41 @@
   
   <!-- Custom JavaScript -->
   <script>
+    // Hero section zoom and text transition effect
+    window.addEventListener('scroll', function() {
+      const heroSection = document.querySelector('.hero-section');
+      const heroBefore = document.querySelector('.hero-section::before');
+      const heroTitle = document.querySelector('.hero-title');
+      const heroSubtitle = document.querySelector('.hero-subtitle');
+      const scrollY = window.scrollY;
+      const heroHeight = window.innerHeight;
+      
+      // Calculate scroll percentage from top
+      let scrollPercent = scrollY / heroHeight;
+      
+      // Limit the effect to the hero section
+      if (scrollPercent < 1) {
+        // Scale background from 1 to 1.3 as you scroll
+        const scale = 1 + (scrollPercent * 0.3);
+        heroSection.style.setProperty('--scale', scale);
+        
+        // Apply scale to pseudo-element using JavaScript
+        const style = document.createElement('style');
+        style.textContent = `.hero-section::before { transform: scale(${scale}); }`;
+        document.head.appendChild(style);
+        
+        // Move title and subtitle to center and scale down
+        const titleScale = 1 - (scrollPercent * 0.3);
+        heroTitle.style.transform = `translateY(${scrollPercent * -200}px) scale(${titleScale})`;
+        heroSubtitle.style.transform = `translateY(${scrollPercent * -150}px) scale(${titleScale})`;
+        
+        // Adjust opacity as you scroll
+        const opacity = 1 - (scrollPercent * 0.5);
+        heroTitle.style.opacity = Math.max(opacity, 0.3);
+        heroSubtitle.style.opacity = Math.max(opacity, 0.3);
+      }
+    });
+
     // Navbar scroll effect
     window.addEventListener('scroll', function() {
       const navbar = document.getElementById('mainNavbar');
@@ -767,5 +833,10 @@
       });
     });
   </script>
-</body>
-</html>
+  
+  <!-- Locomotive Scroll JS -->
+  <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@4.1.3/dist/locomotive-scroll.umd.js"></script>
+  <script>
+    // Initialize Locomotive Scroll
+    const scroll = new LocomotiveScroll();
+  </script>
