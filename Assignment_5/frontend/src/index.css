@@ -1,0 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+:root {
+  font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  background:
+    radial-gradient(ellipse at 15% 25%, rgba(180, 210, 255, 0.55) 0%, transparent 55%),
+    radial-gradient(ellipse at 85% 75%, rgba(170, 240, 210, 0.4) 0%, transparent 55%),
+    linear-gradient(150deg, #deeeff 0%, #eaf6f0 50%, #dff0ff 100%);
+  background-attachment: fixed;
+}

@@ -1,0 +1,11 @@
+Place your hero section assets in this folder.
+
+Required filename for the current hero layout:
+- hero-shoe.png
+
+Optional replacements you can also add later:
+- hero-shoe.webp
+- hero-shoe.jpg
+
+Current component uses:
+/public/images/hero/hero-shoe.png

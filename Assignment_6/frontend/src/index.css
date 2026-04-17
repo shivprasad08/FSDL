@@ -1,0 +1,155 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;700;900&family=Bebas+Neue&family=Inter:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', 'Helvetica', 'Arial', sans-serif;
+  background-color: #ffffff;
+  color: #0D0D0D;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Barlow Condensed', 'Bebas Neue', sans-serif;
+  font-weight: 900;
+}
+
+.display-text {
+  font-family: 'Barlow Condensed', 'Bebas Neue', sans-serif;
+  font-weight: 900;
+  font-size: clamp(2rem, 8vw, 7rem);
+  line-height: 1.1;
+  text-transform: capitalize;
+  letter-spacing: -0.02em;
+}
+
+.text-orange {
+  color: #E8500A;
+}
+
+.text-yellow {
+  color: #F5C518;
+}
+
+.scalloped-border {
+  position: relative;
+  clip-path: polygon(
+    0 2%, 1% 1%, 2% 0, 3% 0, 4% 1%, 5% 2%, 6% 2%, 7% 1%, 8% 0, 9% 0,
+    10% 1%, 11% 2%, 12% 2%, 13% 1%, 14% 0, 15% 0, 16% 1%, 17% 2%, 18% 2%, 19% 1%,
+    20% 0, 21% 0, 22% 1%, 23% 2%, 24% 2%, 25% 1%, 26% 0, 27% 0, 28% 1%, 29% 2%, 30% 2%, 31% 1%,
+    32% 0, 33% 0, 34% 1%, 35% 2%, 36% 2%, 37% 1%, 38% 0, 39% 0, 40% 1%, 41% 2%, 42% 2%, 43% 1%,
+    44% 0, 45% 0, 46% 1%, 47% 2%, 48% 2%, 49% 1%, 50% 0, 51% 1%, 52% 2%, 53% 2%, 54% 1%,
+    55% 0, 56% 0, 57% 1%, 58% 2%, 59% 2%, 60% 1%, 61% 0, 62% 0, 63% 1%, 64% 2%, 65% 2%, 66% 1%,
+    67% 0, 68% 0, 69% 1%, 70% 2%, 71% 2%, 72% 1%, 73% 0, 74% 0, 75% 1%, 76% 2%, 77% 2%, 78% 1%,
+    79% 0, 80% 0, 81% 1%, 82% 2%, 83% 2%, 84% 1%, 85% 0, 86% 0, 87% 1%, 88% 2%, 89% 2%, 90% 1%,
+    91% 0, 92% 0, 93% 1%, 94% 2%, 95% 2%, 96% 1%, 97% 0, 98% 0, 99% 1%, 100% 2%,
+    100% 100%, 0 100%
+  );
+}
+
+.hero-text-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.5rem;
+  justify-content: center;
+}
+
+.scroll-smooth {
+  scroll-behavior: smooth;
+}
+
+.scrollable-products {
+  display: flex;
+  overflow-x: auto;
+  gap: 1.5rem;
+  padding-bottom: 1rem;
+}
+
+.scrollable-products::-webkit-scrollbar {
+  height: 8px;
+}
+
+.scrollable-products::-webkit-scrollbar-track {
+  background: #f5f5f5;
+  border-radius: 10px;
+}
+
+.scrollable-products::-webkit-scrollbar-thumb {
+  background: #0D0D0D;
+  border-radius: 10px;
+}
+
+.scrollable-products::-webkit-scrollbar-thumb:hover {
+  background: #333;
+}
+
+.product-card-image {
+  aspect-ratio: 1 / 1;
+  background-color: #f5f5f5;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  transition: box-shadow 0.3s ease;
+}
+
+.product-card-image:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.product-card-image img {
+  max-width: 85%;
+  max-height: 85%;
+  object-fit: contain;
+}
+
+.price-display {
+  display: flex;
+  align-items: baseline;
+  gap: 0.25rem;
+  color: #E8500A;
+  font-weight: 900;
+}
+
+.price-main {
+  font-size: 1.5rem;
+  font-weight: 900;
+}
+
+.price-decimal {
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.star-icon {
+  display: inline-block;
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.hero-pill-cell {
+  flex: 1;
+  min-width: 72px;
+  background-color: #f5c518;
+  border-radius: 999px;
+}
+
+.hero-grid-overlay {
+  background-color: transparent;
+  background-image:
+    linear-gradient(to right, rgba(255, 255, 255, 0.26) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.26) 1px, transparent 1px);
+  background-size: 86px 86px;
+  border-radius: 999px;
+  pointer-events: none;
+}

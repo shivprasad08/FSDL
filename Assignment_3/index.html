@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Veloura | Dynamic Fashion Store</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav id="mainNavbar" class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#home"><i class="fa-solid fa-gem me-2"></i>Veloura</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu" aria-controls="navMenu" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navMenu">
+                <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
+                    <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#shop">Shop</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#collections">Collections</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                </ul>
+                <div class="d-flex align-items-center gap-3 nav-tools">
+                    <div class="search-wrap">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <input type="search" id="searchInput" class="form-control" placeholder="Search products..." aria-label="Search products">
+                    </div>
+                    <button id="wishlistBtn" class="icon-btn" type="button" aria-label="Wishlist">
+                        <i class="fa-regular fa-heart"></i>
+                        <span id="wishlistBadge" class="badge-count">0</span>
+                    </button>
+                    <button id="cartBtn" class="icon-btn" type="button" data-bs-toggle="offcanvas" data-bs-target="#cartDrawer" aria-controls="cartDrawer" aria-label="Cart">
+                        <i class="fa-solid fa-bag-shopping"></i>
+                        <span id="cartBadge" class="badge-count">0</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <section class="promo-strip">
+        <div class="container">
+            <div class="promo-track">
+                <span>FLAT 40% OFF ON NEW DROPS</span>
+                <span>FREE SHIPPING ABOVE $49</span>
+                <span>TRENDING STREETWEAR EDIT LIVE</span>
+                <span>EXTRA 10% OFF ON FIRST ORDER</span>
+            </div>
+        </div>
+    </section>
+
+    <header id="home" class="hero-section d-flex align-items-center">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-7">
+                    <h1>Discover Your Signature Style</h1>
+                    <p>Curated essentials and statement pieces for Men, Women, Kids, and Accessories.</p>
+                    <a href="#shop" class="btn btn-gold btn-lg">Shop Now</a>
+                    <div class="hero-pills mt-4">
+                        <span>Daily New Arrivals</span>
+                        <span>Premium Quality</span>
+                        <span>Fast Dispatch</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section id="shop" class="py-5">
+            <div class="container">
+                <div class="text-center mb-4">
+                    <h2 class="section-title mb-1">Shop By Category</h2>
+                    <p class="text-muted mb-0">Pick a section to view products</p>
+                </div>
+                <div class="row g-4 align-items-stretch">
+                    <div class="col-md-4">
+                        <article class="category-entry-card h-100" data-action="openCategory" data-category="men">
+                            <img src="https://images.unsplash.com/photo-1617137968427-85924c800a22?w=900&auto=format&fit=crop" alt="Men's collection">
+                            <div class="category-entry-overlay">
+                                <h3>Men's</h3>
+                                <span>View Collection</span>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="col-md-4">
+                        <article class="category-entry-card h-100" data-action="openCategory" data-category="women">
+                            <img src="https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=900&auto=format&fit=crop" alt="Women's collection">
+                            <div class="category-entry-overlay">
+                                <h3>Women's</h3>
+                                <span>View Collection</span>
+                            </div>
+                        </article>
+                    </div>
+                    <div class="col-md-4">
+                        <article class="category-entry-card h-100" data-action="openCategory" data-category="accessories">
+                            <img src="https://images.unsplash.com/photo-1617038220319-276d3cfab638?w=900&auto=format&fit=crop" alt="Accessories collection">
+                            <div class="category-entry-overlay">
+                                <h3>Accessories</h3>
+                                <span>View Collection</span>
+                            </div>
+                        </article>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="catalogSection" class="py-5 d-none">
+            <div class="container">
+                <div class="d-flex flex-wrap justify-content-between align-items-end gap-3 mb-3">
+                    <div>
+                        <h2 id="catalogTitle" class="section-title mb-1">Products</h2>
+                        <small id="resultCount" class="result-count"></small>
+                    </div>
+                    <div class="catalog-sort-wrap">
+                        <label for="sortSelect" class="form-label mb-1">Sort By</label>
+                        <select id="sortSelect" class="form-select">
+                            <option value="newest">Newest</option>
+                            <option value="priceLow">Price: Low to High</option>
+                            <option value="priceHigh">Price: High to Low</option>
+                            <option value="rating">Top Rated</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="row g-4" id="productsContainer"></div>
+                <p id="emptyState" class="text-center text-muted py-4 d-none">No matching products found.</p>
+            </div>
+        </section>
+
+        <section class="trust-strip py-4">
+            <div class="container">
+                <div class="row g-3 text-center">
+                    <div class="col-6 col-md-3"><div class="trust-item"><i class="fa-solid fa-truck-fast"></i><p>Express Delivery</p></div></div>
+                    <div class="col-6 col-md-3"><div class="trust-item"><i class="fa-solid fa-rotate-left"></i><p>7-Day Returns</p></div></div>
+                    <div class="col-6 col-md-3"><div class="trust-item"><i class="fa-solid fa-shield-heart"></i><p>Secure Checkout</p></div></div>
+                    <div class="col-6 col-md-3"><div class="trust-item"><i class="fa-solid fa-tags"></i><p>Daily Offers</p></div></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="py-5 bg-light">
+            <div class="container text-center">
+                <h2 class="section-title">About Veloura</h2>
+                <p class="mx-auto about-text">Veloura is a fashion-first digital storefront crafted for modern style lovers. We blend premium aesthetics with everyday comfort through collections that feel timeless and fresh.</p>
+            </div>
+        </section>
+
+        <section id="contact" class="newsletter-section py-5">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-lg-7 text-center">
+                        <h2 class="section-title text-white">Join Our Newsletter</h2>
+                        <p class="text-white-50">Get exclusive drops, offers, and fashion tips straight to your inbox.</p>
+                        <form id="newsletterForm" class="row g-2 justify-content-center mt-3" novalidate>
+                            <div class="col-md-8">
+                                <input type="email" id="newsletterEmail" class="form-control form-control-lg" placeholder="Enter your email" required>
+                                <div id="newsletterError" class="invalid-feedback text-start"></div>
+                            </div>
+                            <div class="col-md-3 d-grid">
+                                <button type="submit" class="btn btn-gold btn-lg">Subscribe</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer-section py-4">
+        <div class="container">
+            <div class="row g-3 align-items-center">
+                <div class="col-md-4"><h5 class="mb-0"><i class="fa-solid fa-gem me-2"></i>Veloura</h5></div>
+                <div class="col-md-4 text-md-center footer-links">
+                    <a href="#home">Home</a>
+                    <a href="#shop">Shop</a>
+                    <a href="#about">About</a>
+                    <a href="#contact">Contact</a>
+                </div>
+                <div class="col-md-4 text-md-end social-links">
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" aria-label="X"><i class="fab fa-x-twitter"></i></a>
+                </div>
+            </div>
+            <hr>
+            <p class="mb-0 text-center">© 2026 Veloura Fashion Store. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <div class="offcanvas offcanvas-end" tabindex="-1" id="cartDrawer" aria-labelledby="cartDrawerLabel">
+        <div class="offcanvas-header">
+            <h5 id="cartDrawerLabel" class="offcanvas-title">Your Cart (<span id="cartItemCount">0</span>)</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body d-flex flex-column">
+            <div id="cartItems" class="flex-grow-1"></div>
+            <div class="cart-summary pt-3 mt-3 border-top">
+                <div class="d-flex justify-content-between mb-2"><span>Subtotal</span><strong id="cartSubtotal">₹0.00</strong></div>
+                <button id="checkoutBtn" class="btn btn-dark w-100">Proceed to Checkout</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal fade" id="productModal" tabindex="-1" aria-labelledby="productModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="productModalLabel">Product Details</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div id="productModalBody" class="modal-body"></div>
+            </div>
+        </div>
+    </div>
+
+    <div id="toastContainer" class="toast-container position-fixed bottom-0 end-0 p-3"></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="products.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
